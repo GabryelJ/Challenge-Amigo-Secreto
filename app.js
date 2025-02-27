@@ -12,5 +12,17 @@ function adicionarAmigo(){
     !nome ? alert("Por favor, insira um nome.") : semRepeticao( nome );
 
     document.getElementById("amigo").value = "";
+    atualizarExibicaoDosAmigosNaLista();
 }
 
+function atualizarExibicaoDosAmigosNaLista(){
+    const listaAmigos = document.getElementById("listaAmigos");
+    listaAmigos.innerHTML = "";
+
+    for (let i = 0; i < nomesParaSorteio.length; i++) {
+        let novoLi = document.createElement('li');
+        novoLi.textContent = nomesParaSorteio[i];
+
+        listaAmigos.appendChild(novoLi);
+    }
+}
