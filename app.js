@@ -1,18 +1,21 @@
 let nomesParaSorteio = [];
 
 function adicionarAmigo(){
-    let nome = document.getElementById("amigo").value;
-
+    let entradaNome = document.getElementById("amigo");
+    let nome = entradaNome.value;
     function semRepeticao(nome){
         if (!nomesParaSorteio.includes(nome)){
             nomesParaSorteio.push(nome);
+        }else{
+            alert(`${nome} já está contido na lista.`)
         }
     }
 
     !nome ? alert("Por favor, insira um nome.") : semRepeticao( nome );
 
-    document.getElementById("amigo").value = "";
+    entradaNome.value = "";
     atualizarExibicaoDosAmigosNaLista();
+    entradaNome.focus();
 }
 
 function atualizarExibicaoDosAmigosNaLista(){
@@ -33,10 +36,10 @@ function sortearAmigo(){
         const resultado = document.getElementById("resultado");
         let numeroSorteado = parseInt(Math.random() * numeroDeParticipantes);
         let nomeSorteado = nomesParaSorteio[numeroSorteado];
-
         resultado.innerHTML = "";
-        let elementoNomeSorteado = document.createElement("li");
-        elementoNomeSorteado.textContent = nomeSorteado;
-        resultado.appendChild(elementoNomeSorteado);
+        resultado.innerHTML = `O amigo sorteado foi : ${nomeSorteado}`;
+
+        nomesParaSorteio = [];
+        document.getElementById("listaAmigos").innerHTML = "";
     }
 }
