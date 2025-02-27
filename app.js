@@ -26,3 +26,13 @@ function atualizarExibicaoDosAmigosNaLista(){
         listaAmigos.appendChild(novoLi);
     }
 }
+
+function sortearAmigo(){
+    let numeroDeParticipantes = nomesParaSorteio.length;
+    if(numeroDeParticipantes > 0){
+        const resultado = document.getElementById("resultado");
+        let numeroSorteado = parseInt(Math.random() * numeroDeParticipantes);
+        let nomeSorteado = nomesParaSorteio[numeroSorteado];
+        resultado.innerHTML = nomeSorteado;
+    }
+}
