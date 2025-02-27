@@ -33,6 +33,10 @@ function sortearAmigo(){
         const resultado = document.getElementById("resultado");
         let numeroSorteado = parseInt(Math.random() * numeroDeParticipantes);
         let nomeSorteado = nomesParaSorteio[numeroSorteado];
-        resultado.innerHTML = nomeSorteado;
+
+        resultado.innerHTML = "";
+        let elementoNomeSorteado = document.createElement("li");
+        elementoNomeSorteado.textContent = nomeSorteado;
+        resultado.appendChild(elementoNomeSorteado);
     }
 }
